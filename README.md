@@ -8,7 +8,7 @@ The app **does not collect, store, or share** any personal information.
 All gameplay data (such as quiz scores) remain securely on your device.
 
 You can view the full Privacy Policy here:  
-👉 [View Privacy Policy](https://yourusername.github.io/biblequiz/privacy-policy.html)
+👉 [View Privacy Policy](https://garbyx.github.io/biblequiz/privacy-policy.html)
 
 ### ⚖️ Legal Notice
 Bible Quiz is a learning and entertainment tool designed to help users engage with the Holy Bible.  
