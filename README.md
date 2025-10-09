@@ -24,5 +24,5 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 ## 🧑‍💻 Author
 **Gabriel Madichie**  
-📧 [your-email@example.com](mailto:gabrillo2010+appsupport@gmail.com)  
+📧 [gabrillo2010+appsupport@gmail.com](mailto:gabrillo2010+appsupport@gmail.com)  
 🌐 [https://github.com/garbyx](https://github.com/garbyx)
