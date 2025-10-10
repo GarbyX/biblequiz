@@ -28,7 +28,7 @@ Bible Quiz is suitable for **all ages** and does not include any harmful or sens
 
 ## 📧 Contact Us
 If you have any questions about this Privacy Policy, you can contact us at:  
-**gabrillo2010+appsupport@gmail.com**
+**gabrillo2010.appsupport@gmail.com**
 
 ---
 
