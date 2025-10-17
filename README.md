@@ -1,16 +1,28 @@
-# bible_quiz_app
+---
 
-A new Flutter project.
+## 🔐 Privacy & Legal
 
-## Getting Started
+### 📜 Privacy Policy
+Bible Quiz respects your privacy.  
+The app **does not collect, store, or share** any personal information.  
+All gameplay data (such as quiz scores) remain securely on your device.
 
-This project is a starting point for a Flutter application.
+You can view the full Privacy Policy here:  
+👉 [View Privacy Policy](https://garbyx.github.io/biblequiz/privacy-policy.html)
 
-A few resources to get you started if this is your first Flutter project:
+### ⚖️ Legal Notice
+Bible Quiz is a learning and entertainment tool designed to help users engage with the Holy Bible.  
+All scripture references are for educational and devotional use.  
+This app is **not affiliated with or endorsed by any specific church or denomination**.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ License
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
+
+## 🧑‍💻 Author
+**Gabriel Madichie**  
+📧 [gabrillo2010+appsupport@gmail.com](mailto:gabrillo2010+appsupport@gmail.com)  
+🌐 [https://github.com/garbyx](https://github.com/garbyx)
