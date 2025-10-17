@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "292810865411",
+    "project_id": "bible-quiz-01",
+    "storage_bucket": "bible-quiz-01.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292810865411:android:055ac5a1bd964868ad8736",
+        "android_client_info": {
+          "package_name": "com.maverick.bible_quiz_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALezJSPv0YMPz4hFPA--aqN6FOODAb5YU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

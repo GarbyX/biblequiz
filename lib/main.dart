@@ -1,6 +1,4 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -23,15 +21,11 @@ class Question {
   final List<String> options;
   final int correctIndex;
 
-  Question({required this.question, required this.options, required this.correctIndex});
-
-  factory Question.fromJson(Map<String, dynamic> json) {
-    return Question(
-      question: json['question'],
-      options: List<String>.from(json['options']),
-      correctIndex: json['correct_index'],
-    );
-  }
+  Question({
+    required this.question,
+    required this.options,
+    required this.correctIndex,
+  });
 }
 
 class HomeScreen extends StatelessWidget {
@@ -74,10 +68,9 @@ class QuizScreen extends StatefulWidget {
 }
 
 class _QuizScreenState extends State<QuizScreen> {
-  List<Question> questions = [];
+  late List<Question> questions;
   int currentIndex = 0;
   int score = 0;
-  bool isLoading = true;
 
   @override
   void initState() {
@@ -85,13 +78,119 @@ class _QuizScreenState extends State<QuizScreen> {
     loadQuestions();
   }
 
-  Future<void> loadQuestions() async {
-    final String jsonString = await rootBundle.loadString('assets/questions.json');
-    final List<dynamic> data = json.decode(jsonString);
-    setState(() {
-      questions = data.map((e) => Question.fromJson(e)).toList();
-      isLoading = false;
-    });
+  void loadQuestions() {
+    questions = [
+      Question(
+        question: "Who built the ark?",
+        options: ["Moses", "Noah", "Abraham", "David"],
+        correctIndex: 1,
+      ),
+      Question(
+        question: "Where was Jesus born?",
+        options: ["Nazareth", "Bethlehem", "Jerusalem", "Capernaum"],
+        correctIndex: 1,
+      ),
+      Question(
+        question: "How many disciples did Jesus have?",
+        options: ["10", "11", "12", "13"],
+        correctIndex: 2,
+      ),
+      Question(
+        question: "What was the first miracle Jesus performed?",
+        options: [
+          "Healing the blind man",
+          "Feeding 5,000 people",
+          "Turning water into wine",
+          "Walking on water"
+        ],
+        correctIndex: 2,
+      ),
+      Question(
+        question: "Who was swallowed by a great fish?",
+        options: ["Jonah", "Elijah", "Job", "Paul"],
+        correctIndex: 0,
+      ),
+      Question(
+        question: "Who led the Israelites out of Egypt?",
+        options: ["Abraham", "Moses", "Joshua", "Joseph"],
+        correctIndex: 1,
+      ),
+      Question(
+        question: "What did David use to defeat Goliath?",
+        options: ["A sword", "A spear", "A sling and a stone", "A bow"],
+        correctIndex: 2,
+      ),
+      Question(
+        question: "Who denied Jesus three times?",
+        options: ["Peter", "John", "James", "Judas"],
+        correctIndex: 0,
+      ),
+      Question(
+        question: "In what city did Jesus perform His first miracle?",
+        options: ["Bethlehem", "Nazareth", "Cana", "Jericho"],
+        correctIndex: 2,
+      ),
+      Question(
+        question: "What is the last book of the Bible?",
+        options: ["Genesis", "Psalms", "Matthew", "Revelation"],
+        correctIndex: 3,
+      ),
+      Question(
+        question: "Who was the first man created?",
+        options: ["Abel", "Adam", "Seth", "Cain"],
+        correctIndex: 1,
+      ),
+      Question(
+        question: "Who was thrown into the lions’ den?",
+        options: ["Daniel", "Elijah", "Moses", "Paul"],
+        correctIndex: 0,
+      ),
+      Question(
+        question: "Who betrayed Jesus with a kiss?",
+        options: ["Peter", "Thomas", "Judas", "Matthew"],
+        correctIndex: 2,
+      ),
+      Question(
+        question: "Who was the mother of Samuel?",
+        options: ["Hannah", "Rachel", "Mary", "Sarah"],
+        correctIndex: 0,
+      ),
+      Question(
+        question: "What did God create on the first day?",
+        options: ["Man", "Animals", "Light", "Plants"],
+        correctIndex: 2,
+      ),
+      Question(
+        question: "Who was the strongest man in the Bible?",
+        options: ["David", "Moses", "Samson", "Elijah"],
+        correctIndex: 2,
+      ),
+      Question(
+        question: "How many days did God take to create the world?",
+        options: ["5", "6", "7", "8"],
+        correctIndex: 1,
+      ),
+      Question(
+        question: "What did Jesus feed the 5,000 with?",
+        options: [
+          "5 loaves and 2 fish",
+          "2 loaves and 5 fish",
+          "10 loaves and 1 fish",
+          "7 loaves and 3 fish"
+        ],
+        correctIndex: 0,
+      ),
+      Question(
+        question: "Who wrote most of the Psalms?",
+        options: ["Moses", "David", "Solomon", "Isaiah"],
+        correctIndex: 1,
+      ),
+      Question(
+        question: "Which disciple walked on water with Jesus?",
+        options: ["John", "Peter", "James", "Andrew"],
+        correctIndex: 1,
+      ),
+    ];
   }
 
   void answerQuestion(int selectedIndex) {
@@ -105,7 +204,9 @@ class _QuizScreenState extends State<QuizScreen> {
       saveScore();
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => ResultScreen(score: score, total: questions.length)),
+        MaterialPageRoute(
+          builder: (context) => ResultScreen(score: score, total: questions.length),
+        ),
       );
     }
   }
@@ -119,25 +220,16 @@ class _QuizScreenState extends State<QuizScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (isLoading) {
-      return Scaffold(
-        appBar: AppBar(title: Text('Quiz')),
-        body: Center(child: CircularProgressIndicator()),
-      );
-    }
-
     final question = questions[currentIndex];
 
     return Scaffold(
-      appBar: AppBar(title: Text('Quiz')),
+      appBar: AppBar(title: Text('Question ${currentIndex + 1}/${questions.length}')),
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Question ${currentIndex + 1}/${questions.length}', style: TextStyle(fontSize: 18)),
-            SizedBox(height: 20),
-            Text(question.question, style: TextStyle(fontSize: 20)),
+            Text(question.question, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             SizedBox(height: 20),
             ...List.generate(question.options.length, (i) {
               return ElevatedButton(
