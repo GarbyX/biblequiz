@@ -23,17 +23,17 @@ if (keystorePropertiesFile.exists()) {
 android {
     ndkVersion = "27.0.12077973"
     // ndkVersion = "26.3.11579264"
-    namespace = "com.example.bible_quiz_app"
+    namespace = "com.maverick.bible_quiz_app"
     compileSdk = 35
     ndkVersion = "29.0.14033849 rc4"
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     defaultConfig {
